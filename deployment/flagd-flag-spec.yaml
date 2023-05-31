@@ -33,7 +33,7 @@ spec:
           red: c05543
           green: 2f5230
           blue: 0d507b
-        defaultVariant: red
+        defaultVariant: blue
         state: ENABLED
 ---
 apiVersion: core.openfeature.dev/v1alpha2
@@ -52,12 +52,3 @@ spec:
           binet: binet
         defaultVariant: recursive
         state: ENABLED
-        targeting: {
-          "if": [
-            {
-              "in": ["@faas.com", {
-                "var": ["email"]
-              }]
-            }, "binet", null
-          ]
-        }
