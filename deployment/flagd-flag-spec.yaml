@@ -52,3 +52,9 @@ spec:
           binet: binet
         defaultVariant: recursive
         state: ENABLED
+      use-remote-fib-service:
+        variants:
+          'on': true
+          'off': false
+        defaultVariant: 'off'
+        state: ENABLED
