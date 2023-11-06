@@ -47,16 +47,16 @@ spec:
   ports:
     - port: 1888
       targetPort: 1888
-      name: internal
+      name: pprof
     - port: 8888
       targetPort: 8888
-      name: internal
+      name: exported-metrics
     - port: 8889
       targetPort: 8889
-      name: internal
+      name: exporter-metrics
     - port: 4317
       targetPort: 4317
-      name: internal
+      name: grpc-receiver
 ---
 apiVersion: v1
 kind: ConfigMap
