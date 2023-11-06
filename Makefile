@@ -8,9 +8,9 @@ install-environment: install-ofo install-argo create-argo-app
 
 install-ofo:
 	kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.10.1/cert-manager.yaml
-	kubectl wait --timeout=60s --for=condition=Available=True deploy --all -n 'cert-manager'
+	kubectl wait --timeout=300s --for=condition=Available=True deploy --all -n 'cert-manager'
 	kubectl apply -f environment/ofo/ofo.yaml
-	kubectl wait --timeout=60s --for=condition=Available=True deploy --all -n 'open-feature-operator-system'
+	kubectl wait --timeout=300s --for=condition=Available=True deploy --all -n 'open-feature-operator-system'
 
 uninstall-ofo:
 	kubectl delete -f environment/ofo/ofo.yaml
@@ -18,7 +18,7 @@ uninstall-ofo:
 install-argo:
 	kubectl create namespace argocd
 	kubectl -n argocd apply -f environment/argo/argo.yaml
-	kubectl wait --timeout=60s --for=condition=Available=True deploy --all -n 'argocd'
+	kubectl wait --timeout=300s --for=condition=Available=True deploy --all -n 'argocd'
 
 install-ingress:
 	kubectl apply -f environment/ingress/ingress.yaml
