@@ -26,10 +26,10 @@ spec:
         - name: otel-collector
           image: otel/opentelemetry-collector-contrib:0.85.0
           ports:
-            - containerPort: "1888"
-            - containerPort: "8888"
-            - containerPort: "8889"
-            - containerPort: "4317"
+            - containerPort: 1888
+            - containerPort: 8888
+            - containerPort: 8889
+            - containerPort: 4317
           volumeMounts:
             - name: collector-config
               mountPath: /etc/collector-config.yaml
