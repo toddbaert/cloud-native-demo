@@ -38,7 +38,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: open-feature-demo-otel-service
+  name: open-feature-demo-otel-collector-service
   namespace: open-feature-demo
 spec:
   type: ClusterIP
@@ -69,8 +69,6 @@ data:
         protocols:
           grpc:
     exporters:
-      prometheus:
-        endpoint: "0.0.0.0:8889"
       otlp/jaeger:
         endpoint: open-feature-demo-jaeger-service:4317
         tls:
@@ -83,7 +81,7 @@ data:
           receivers: [ otlp ]
           processors: [ batch ]
           exporters: [ otlp/jaeger ]
-        metrics:
-          receivers: [ otlp ]
-          processors: [ batch ]
-          exporters: [ prometheus ]
+        # metrics:
+        #   receivers: [ otlp ]
+        #   processors: [ batch ]
+        #   exporters: [ prometheus ]
